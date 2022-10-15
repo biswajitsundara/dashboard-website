@@ -1,0 +1,111 @@
+/**
+ * App Styles
+ * @author - Biswajit Sundara
+ * @date - 15/10/2022
+ */
+
+/************************************************************************
+*                          GLOBAL STYLES
+*************************************************************************/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f8;
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+/***************************************************************************
+*                           CARD STYLES
+****************************************************************************/
+
+.card {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Roboto", sans-serif;
+}
+
+.card-title > h1 {
+  font-weight: bold;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11), 0 24px 46px #add8e6;
+}
+
+/***************************************************************************
+*                           CHIP STYLES
+****************************************************************************/
+
+.chip-button:hover {
+  transform: scale(1.25) rotate(1deg);
+  box-shadow: "0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f";
+}
+
+.nav-pills {
+  font-family: "Roboto", sans-serif;
+}
+
+/******************************************************************************
+*                           TABLE STYLE
+*******************************************************************************/
+table {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  width: 100% !important;
+  font-family: "Roboto", sans-serif;
+}
+
+th {
+  background-color: #6c757d;
+  color: white;
+}
+#dropdownrow {
+  font-family: "Roboto", sans-serif;
+  padding: 1rem;
+  line-height: 200%;
+}
+
+.dropdown-menu a:hover {
+  background: #014464 !important;
+  background: linear-gradient(left, #909090, #606060);
+  background: -moz-linear-gradient(left, #909090, #606060) !important;
+  background: -webkit-gradient(
+    linear,
+    100% 100%,
+    0% 0%,
+    from(#909090),
+    to(#606060)
+  ) !important;
+  color: #f8f9fa !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/**************************************************************************
+*                                 CHART STYLES
+***************************************************************************/
+
+.chartCard {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.chartBox {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  width: 800px;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+#appTrendChartBox1,
+#appTrendChartBox2 {
+  display: none;
+}
