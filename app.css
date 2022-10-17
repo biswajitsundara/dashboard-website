@@ -61,6 +61,7 @@ table {
 th {
   background-color: #6c757d;
   color: white;
+  font-weight: normal;
 }
 #dropdownrow {
   font-family: "Roboto", sans-serif;
