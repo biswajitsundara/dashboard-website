@@ -4,7 +4,6 @@
  * @date - 15/10/2022
  */
 
-
 /*****************************************************************************************
  *                                   TABLE FILTERS
  *
@@ -16,7 +15,8 @@ async function getFilterFields(fieldName) {
     tableData.forEach((tdata) => {
       filterData.push(tdata[fieldName]);
     });
-    resolve(filterData);
+    const filteredData = [...new Set(filterData)];
+    resolve(filteredData);
   });
 }
 
@@ -139,12 +139,36 @@ async function getTableRow(data, rowNo) {
 
     const indexTd = document.createElement("td");
     indexTd.innerText = rowNo + 1;
+    indexTd.style.width = "2%";
     tr.appendChild(indexTd);
 
     columnNames.forEach((colname) => {
-      const td = document.createElement("td");
-      td.innerText = data[colname];
-      tr.appendChild(td);
+      let cellText = data[colname];
+
+      if (
+        collapsibleField.includes(colname) &&
+        cellText.length > collapsibleFieldLimit
+      ) {
+        cellText = cellText.substring(0, 50);
+        cellText = cellText.concat("....");
+      }
+
+      if (!hiddenFields.includes(colname)) {
+        const td = document.createElement("td");
+        td.style.width = columnWidth[colname];
+        if (HTMLFields.includes(colname)) {
+          td.innerHTML = cellText;
+        } else {
+          td.innerText = cellText;
+        }
+
+        td.addEventListener("dblclick", (event) => {
+          if (collapsibleField.includes(colname)) {
+            td.innerText = data[colname];
+          }
+        });
+        tr.appendChild(td);
+      }
     });
     resolve(tr);
   });
@@ -161,9 +185,11 @@ async function getTableHeading() {
 
     columnNames = Object.getOwnPropertyNames(tableData[0]);
     columnNames.forEach((colname) => {
-      const th = document.createElement("th");
-      th.innerText = colname;
-      tr.appendChild(th);
+      if (!hiddenFields.includes(colname)) {
+        const th = document.createElement("th");
+        th.innerText = colname;
+        tr.appendChild(th);
+      }
     });
     thead.appendChild(tr);
     resolve(thead);
