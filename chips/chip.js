@@ -20,6 +20,9 @@ const chipColors = {
   pewterBlue: "#90BCBB",
   aero: "#68C0D6",
   pastalGrey: "#CCD3B1",
+  lightPink: "#B9B9D6",
+  fadedpink: "#cdacc6",
+  shadedpink: "#a7c1d3"
 };
 
 /*******************************************************************************************
@@ -67,6 +70,7 @@ async function getChipItem(data) {
 
     button.style.width = "200px";
     button.style.marginRight = "10px";
+    button.style.marginBottom = "20px";
 
     button.appendChild(span);
     resolve(button);

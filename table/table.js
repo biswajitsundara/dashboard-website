@@ -93,9 +93,12 @@ async function getDropDown() {
     ddButton.style.width = "250px";
     const dData = await getFilterFields(filterFields[j]);
 
-    for (let i = 0; i < dData.length; i++) {
+    //For numbers it will not give correct result
+    const sortedDropDownData = dData.sort();
+
+    for (let i = 0; i < sortedDropDownData.length; i++) {
       const menuItem = await getDropDownItem(
-        dData[i],
+        sortedDropDownData[i],
         filterFields[j],
         ddButton
       );
