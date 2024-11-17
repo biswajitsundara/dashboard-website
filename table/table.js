@@ -167,7 +167,13 @@ async function getTableRow(data, rowNo) {
 
         td.addEventListener("dblclick", (event) => {
           if (collapsibleField.includes(colname)) {
-            td.innerText = data[colname];
+
+            if(td.innerText.endsWith('...')){
+              td.innerText = data[colname];
+            }
+            else{
+              td.innerText = cellText;
+            }  
           }
         });
         tr.appendChild(td);
